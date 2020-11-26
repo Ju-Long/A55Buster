@@ -14,8 +14,7 @@ class ViewController: UIViewController, UIPickerViewDataSource,
     @IBOutlet weak var outPickerView: UIPickerView!
     @IBOutlet weak var outLabel: UILabel!
     
-    var list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    var list2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    var list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     var operators = ["+", "-", "*", "/"]
     
     override func viewDidLoad() {
@@ -36,11 +35,11 @@ class ViewController: UIViewController, UIPickerViewDataSource,
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
         if (component == 0) {
-            return list1.count
+            return list.count
         } else if (component == 1) {
             return operators.count
         } else {
-            return list2.count
+            return list.count
         }
     }
     
@@ -49,27 +48,27 @@ class ViewController: UIViewController, UIPickerViewDataSource,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
         if (component == 0) {
-            return "\(list1[row])"
+            return "\(list[row])"
         } else if (component == 1) {
             return operators[row]
         } else {
-            return "\(list2[row])"
+            return "\(list[row])"
         }
     }
     
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row:Int,
                     inComponent component: Int) {
-        let num1 = list1[outPickerView.selectedRow(inComponent: 0)]
-        let num2 = list2[outPickerView.selectedRow(inComponent: 2)]
+        let num1 = list[outPickerView.selectedRow(inComponent: 0)]
+        let num2 = list[outPickerView.selectedRow(inComponent: 2)]
         let op = operators[outPickerView.selectedRow(inComponent: 1)]
         
         outLabel.text = "\(num1) \(op) \(num2)"
     }
     
     @IBAction func calculate(_ sender: UIButton) {
-        let num1 = list1[outPickerView.selectedRow(inComponent: 0)]
-        let num2 = list2[outPickerView.selectedRow(inComponent: 2)]
+        let num1 = list[outPickerView.selectedRow(inComponent: 0)]
+        let num2 = list[outPickerView.selectedRow(inComponent: 2)]
         let op = operators[outPickerView.selectedRow(inComponent: 1)]
         
         var output = 0.0
