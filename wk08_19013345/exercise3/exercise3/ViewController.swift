@@ -30,22 +30,26 @@ class ViewController: UIViewController, UIPickerViewDataSource,
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
         if (pickerView == outPickerView1) {
-            return grcs["Ang Mo Kio"].count?
+            return (grcs.keys).count
         } else {
-            return girls.count
+            if (outPickerView1.selectedRow(inComponent: 0) == 0) {
+                return (grcs["Ang Mo Kio"]!).count
+            } else {
+                return (grcs["Bishan-Toa Payoh"]!).count
+            }
         }
     }
     
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        if (component == 0) {
-            return gender[row]
+        if (pickerView == outPickerView1) {
+            return (Array(grcs.keys)[row])
         } else {
-            if (outPickerView.selectedRow(inComponent: 0) == 0) {
-                return boys[row]
+            if (outPickerView1.selectedRow(inComponent: 0) == 0) {
+                return (grcs["Ang Mo Kio"]![row])
             } else {
-                return girls[row]
+                return (grcs["Bishan-Toa Payoh"]![row])
             }
         }
     }
@@ -53,19 +57,10 @@ class ViewController: UIViewController, UIPickerViewDataSource,
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row:Int,
                     inComponent component: Int) {
-        outPickerView.reloadComponent(1)
-        if (component == 0) {
-            outPickerView.selectRow(0, inComponent: 1, animated: true)
+        outPickerView2.reloadComponent(0)
+        if (pickerView == outPickerView1 && component == 0) {
+            outPickerView2.selectRow(0, inComponent: 0, animated: true)
         }
-        let gen = gender[outPickerView.selectedRow(inComponent: 0)]
-        var gend = ""
-        if (outPickerView.selectedRow(inComponent: 0) == 0) {
-            gend = boys[outPickerView.selectedRow(inComponent: 1)]
-        } else {
-            gend = girls[outPickerView.selectedRow(inComponent: 1)]
-        }
-        
-        outLabel.text = "\(gen): \(gend)"
     }
 }
 
