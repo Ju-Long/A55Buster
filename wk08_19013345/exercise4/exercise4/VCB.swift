@@ -8,22 +8,34 @@
 import UIKit
 
 class VCB: UIViewController {
-
+    
+    @IBOutlet weak var first: UILabel!
+    @IBOutlet weak var second: UILabel!
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var choice: UISegmentedControl!
+    var f:Int!
+    var s:Int!
+    var data = Data()
+    
+    var choices = ["Add", "Subtract", "Multiply"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        first.text = "\(f!)"
+        second.text = "\(s!)"
+        choice.removeAllSegments()
+        for index in 0..<choices.count {
+            choice.insertSegment(withTitle: choices[index], at: index, animated: true)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        // Get the destination view controller and cast it to the actual class
+        let vc = segue.destination as! VCC
+        data.firstNo = f
+        data.secondNo = s
+        data.choice = choices[choice.selectedSegmentIndex]
+        vc.data = data
+      }
 
 }

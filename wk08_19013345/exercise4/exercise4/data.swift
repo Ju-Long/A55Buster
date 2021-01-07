@@ -6,10 +6,9 @@
 //
 
 import Foundation
-class data {
+class Data {
     var firstNo = 0
     var secondNo = 0
     
     var choice = ""
-    
 }

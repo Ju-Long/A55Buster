@@ -9,21 +9,36 @@ import UIKit
 
 class VCC: UIViewController {
 
+    var data:Data!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+
+    @IBAction func actShowAlert(_ sender: UIButton) {
+        // create the UIAlertController object
+        var alert:UIAlertController
+        if (data.choice == "Add") {
+            alert = UIAlertController(title: "Result",
+                                          message: "\(data.firstNo) + \(data.secondNo) = \(data.firstNo + data.secondNo)",
+                                          preferredStyle: .alert)
+        } else if (data.choice == "Subtract") {
+            alert = UIAlertController(title: "Result",
+                                          message: "\(data.firstNo) - \(data.secondNo) = \(data.firstNo - data.secondNo)",
+                                          preferredStyle: .alert)
+        } else {
+            alert = UIAlertController(title: "Result",
+                                          message: "\(data.firstNo) * \(data.secondNo) = \(data.firstNo * data.secondNo)",
+                                          preferredStyle: .alert)
+        }
+        let doneAction = UIAlertAction(title: "Done",
+                                       style: .default) { (action:UIAlertAction) in
+                                        // code to be executed when button is pressed
+                                        print("done button pressed")
+        }
+        alert.addAction(doneAction)
+        
+        present(alert, animated: true, completion: nil)
+      }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
