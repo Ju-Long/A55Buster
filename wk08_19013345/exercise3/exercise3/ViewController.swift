@@ -44,7 +44,9 @@ class ViewController: UIViewController, UIPickerViewDataSource,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
         if (pickerView == outPickerView1) {
+            NSLog(Array(grcs.keys)[row])
             return (Array(grcs.keys)[row])
+            
         } else {
             if (outPickerView1.selectedRow(inComponent: 0) == 0) {
                 return (grcs["Ang Mo Kio"]![row])
