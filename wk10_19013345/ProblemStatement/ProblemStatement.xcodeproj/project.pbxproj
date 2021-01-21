@@ -15,6 +15,11 @@
 		6C6C324125B950D100337AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C323F25B950D100337AC0 /* LaunchScreen.storyboard */; };
 		6C6C324B25B9515700337AC0 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C324925B9515700337AC0 /* about.html */; };
 		6C6C324C25B9515700337AC0 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C324A25B9515700337AC0 /* logo.jpg */; };
+		6C6C324F25B9544900337AC0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C324E25B9544900337AC0 /* DataController.swift */; };
+		6C6C325225B958BF00337AC0 /* ViewControllerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C325125B958BF00337AC0 /* ViewControllerResult.swift */; };
+		6C6C325625B958DA00337AC0 /* ViewControllerAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6C325525B958DA00337AC0 /* ViewControllerAbout.swift */; };
+		6C6C325B25B959AF00337AC0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6C325925B959AF00337AC0 /* WebKit.framework */; };
+		6C6C325C25B959AF00337AC0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6C325A25B959AF00337AC0 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		6C6C324225B950D100337AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C6C324925B9515700337AC0 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		6C6C324A25B9515700337AC0 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		6C6C324E25B9544900337AC0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		6C6C325125B958BF00337AC0 /* ViewControllerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResult.swift; sourceTree = "<group>"; };
+		6C6C325525B958DA00337AC0 /* ViewControllerAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAbout.swift; sourceTree = "<group>"; };
+		6C6C325925B959AF00337AC0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6C6C325A25B959AF00337AC0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C6C325C25B959AF00337AC0 /* WebKit.framework in Frameworks */,
+				6C6C325B25B959AF00337AC0 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +58,7 @@
 			children = (
 				6C6C323325B950CF00337AC0 /* ProblemStatement */,
 				6C6C323225B950CF00337AC0 /* Products */,
+				6C6C325825B959AE00337AC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,8 +82,20 @@
 				6C6C323D25B950D100337AC0 /* Assets.xcassets */,
 				6C6C323F25B950D100337AC0 /* LaunchScreen.storyboard */,
 				6C6C324225B950D100337AC0 /* Info.plist */,
+				6C6C324E25B9544900337AC0 /* DataController.swift */,
+				6C6C325125B958BF00337AC0 /* ViewControllerResult.swift */,
+				6C6C325525B958DA00337AC0 /* ViewControllerAbout.swift */,
 			);
 			path = ProblemStatement;
+			sourceTree = "<group>";
+		};
+		6C6C325825B959AE00337AC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C6C325A25B959AF00337AC0 /* WebKit.framework */,
+				6C6C325925B959AF00337AC0 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C6C323925B950CF00337AC0 /* ViewController.swift in Sources */,
+				6C6C324F25B9544900337AC0 /* DataController.swift in Sources */,
+				6C6C325625B958DA00337AC0 /* ViewControllerAbout.swift in Sources */,
 				6C6C323525B950CF00337AC0 /* AppDelegate.swift in Sources */,
+				6C6C325225B958BF00337AC0 /* ViewControllerResult.swift in Sources */,
 				6C6C323725B950CF00337AC0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +332,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.rp.19013345.ProblemStatement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -323,6 +355,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.rp.19013345.ProblemStatement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
