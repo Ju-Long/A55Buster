@@ -51,6 +51,7 @@ class EditViewController: UIViewController, UIPickerViewDataSource,
         data.address = outAddress.text!
         data.color = data.colors[outPicker.selectedRow(inComponent: 0)]
         data.date = datePicker.date
-        performSegue
+        performSegue(withIdentifier:
+            "unwind", sender: self)
     }
 }
